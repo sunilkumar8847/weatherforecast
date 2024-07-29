@@ -1,0 +1,56 @@
+/* Styles for DailyForecast Component */
+.daily-forecast-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: var(--primarycolor);
+    border-radius: 0.5rem;
+    padding: 20px;
+    box-shadow: 0 0.2rem 3rem rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.daily-forecast-item {
+    background-color: var(--secondarycolor);
+    border-radius: 0.5rem;
+    margin: 10px;
+    padding: 10px;
+    width: 120px;
+    list-style: none;
+    text-align: center;
+    box-shadow: 0 0.2rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.daily-forecast-item img {
+    width: 80px;
+    height: 80px;
+}
+
+.daily-forecast-item p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: black;
+}
+
+.daily-forecast-container h3 {
+    font-size: 20px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+@media screen and (max-width: 430px) {
+    .daily-forecast-item {
+        width: 100px;
+    }
+
+    .daily-forecast-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .daily-forecast-item p {
+        font-size: 12px;
+    }
+}

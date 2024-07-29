@@ -1,0 +1,13 @@
+.custom-icon {
+    background-color: transparent;
+    border: none;
+  }
+  
+  .custom-icon .leaflet-popup-content-wrapper {
+    padding: 0;
+  }
+  
+  .custom-icon .leaflet-popup-content {
+    margin: 0;
+  }
+  
