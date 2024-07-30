@@ -13,6 +13,7 @@ const port = process.env.PORT || 5000;
 // CORS configuration
 app.use(cors({
   origin: 'http://localhost:5173', // Update this to match your frontend URL
+//   origin: 'https://weatherforecast-3w5n.vercel.app/',
   credentials: true, // Allow cookies to be sent and received
 }));
 
