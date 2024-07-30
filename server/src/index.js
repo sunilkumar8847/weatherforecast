@@ -12,15 +12,19 @@ const port = process.env.PORT || 5000;
 
 // CORS configuration
 app.use(cors({
-  // origin: 'http://localhost:5173',
-  origin: 'https://weatherforecast-3w5n.vercel.app/',
+  origin: 'http://localhost:5173',
+//   origin: 'https://weatherforecast-3w5n.vercel.app/',
   methods: ["POST",  "GET"],
   credentials: true
 }));
 
+app.length('/', (req, res) => {
+    res.json("Hello");
+})
+
 // Middleware
 app.use(express.json());
-app.use(cookieParser()); // Add this line to parse cookies
+app.use(cookieParser());
 app.use('/auth', authRoutes);
 
 // Connect to MongoDB
