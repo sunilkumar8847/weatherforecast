@@ -14,7 +14,8 @@ const port = process.env.PORT || 5000;
 app.use(cors({
   // origin: 'http://localhost:5173',
   origin: 'https://weatherforecast-3w5n.vercel.app/',
-  credentials: true, // Allow cookies to be sent and received
+  methods: ["POST",  "GET"],
+  credentials: true
 }));
 
 // Middleware

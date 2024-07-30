@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { email, password });
+      const response = await axios.post('https://weatherforecast-3w5n.vercel.app/login', { email, password });
       localStorage.setItem('jwt', response.data.token); // Store JWT token in localStorage
       navigate('/home');
     } catch (error) {
