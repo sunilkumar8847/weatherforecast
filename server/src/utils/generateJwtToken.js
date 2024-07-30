@@ -12,7 +12,7 @@ const generateTokenAndSetCookies = (userId, res) => {
         secure: process.env.NODE_ENV !== "development",
     });
 
-    return token;  // Ensure this line is present to return the token
+    return token;
 };
 
 export default generateTokenAndSetCookies;

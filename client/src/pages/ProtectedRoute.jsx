@@ -8,12 +8,12 @@ const ProtectedRoute = () => {
   useEffect(() => {
     const fetchData = async () => {
         try {
-          const token = localStorage.getItem('jwt'); // Retrieve token from localStorage
+          const token = localStorage.getItem('jwt');
           const response = await axios.get('http://localhost:5000/auth/protected', {
             headers: {
-              'Authorization': `Bearer ${token}`, // Include JWT token in header
+              'Authorization': `Bearer ${token}`,
             },
-            withCredentials: true, // Include cookies in requests (if needed)
+            withCredentials: true,
           });
           setData(response.data);
         } catch (error) {

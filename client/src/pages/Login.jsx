@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/auth/login', { email, password });
-      localStorage.setItem('jwt', response.data.token); // Store JWT token in localStorage
+      localStorage.setItem('jwt', response.data.token);
       navigate('/home');
     } catch (error) {
       console.error('Login failed:', error);

@@ -19,7 +19,7 @@ const WeatherPage = () => {
       if (lat && lng) {
         data = await getFormattedWeatherData({ lat, lon: lng });
       } else {
-        data = await getFormattedWeatherData({ q: 'Bhubaneswar' }); // Default location
+        data = await getFormattedWeatherData({ q: 'Bhubaneswar' });
       }
       setWeatherData(data);
     };

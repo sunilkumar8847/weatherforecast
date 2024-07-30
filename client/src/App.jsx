@@ -22,7 +22,7 @@ const AppContent = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/map" element={<Map center={{ lat: 20.2961, lng: 85.8189 }} zoom={13} />} />
         <Route path="/about" element={<About />} />
-        <Route path="/weather" element={<WeatherPage />} /> {/* Updated route to handle weather page */}
+        <Route path="/weather" element={<WeatherPage />} />
       </Routes>
     </div>
   );

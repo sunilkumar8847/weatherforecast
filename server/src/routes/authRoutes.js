@@ -5,35 +5,28 @@ import jwt from 'jsonwebtoken';
 
 const router = express.Router();
 
-// Sign up a new user
 router.post('/signup', async (req, res) => {
   const { fullName, email, password, confPassword } = req.body;
 
-  // Validate all fields are provided
   if (!fullName || !email || !password || !confPassword) {
     return res.status(400).json({ error: 'All fields are required' });
   }
 
-  // Check if passwords match
   if (password !== confPassword) {
     return res.status(400).json({ error: "Passwords don't match" });
   }
 
   try {
-    // Check if user already exists
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ error: 'User already exists' });
     }
 
-    // Create new user
     const newUser = new User({ fullName, email, password });
     await newUser.save();
 
-    // Generate and set token
     const token = generateTokenAndSetCookies(newUser._id, res);
-
-    // Send response
+    
     res.status(201)
       .header('Authorization', `Bearer ${token}`)
       .json({
@@ -48,20 +41,17 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login user and return JWT
+
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Find user by email
     const user = await User.findOne({ email });
     if (!user) return res.status(400).json({ error: 'Invalid email or password' });
 
-    // Check password
     const isMatch = await user.comparePassword(password);
     if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
 
-    // Generate and set token
     const token = generateTokenAndSetCookies(user._id, res);
     res.status(200)
       .header('Authorization', `Bearer ${token}`)
@@ -72,10 +62,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Logout user
 router.post('/logout', (req, res) => {
   try {
-    // Clear JWT cookie
     res.cookie('jwt', '', { maxAge: 0 });
     res.status(200).json({ message: 'You have been logged out' });
   } catch (error) {
@@ -84,10 +72,10 @@ router.post('/logout', (req, res) => {
   }
 });
 
-// Middleware to authenticate JWT
+
 const authenticate = (req, res, next) => {
   const token = req.cookies.jwt || req.header('Authorization')?.replace('Bearer ', '');
-  console.log('Received Token:', token);  // Log the token
+  console.log('Received Token:', token);
 
   if (!token) return res.status(401).json({ error: 'No token, authorization denied' });
 
@@ -98,7 +86,7 @@ const authenticate = (req, res, next) => {
   });
 };
 
-// Define a protected route
+
 router.get('/protected', authenticate, (req, res) => {
   res.status(200).json({ message: 'This is protected data', user: req.user });
 });
