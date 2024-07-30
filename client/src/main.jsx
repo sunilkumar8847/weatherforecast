@@ -9,4 +9,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <App />
   </React.StrictMode>,
 )
+<<<<<<< HEAD
 
+=======
+>>>>>>> bfa4b6851df9266e66d9e752434f0a0c1daf4dd2

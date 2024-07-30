@@ -5,12 +5,8 @@ import WeatherPage from './pages/WeatherPage';
 import Map from './pages/Map';
 import Navbar from './components/Navbar';
 import About from './pages/About';
-import Signup from './pages/Signup';
-import Login from './pages/Login';
 
 const AppContent = () => {
-  const location = useLocation();
-  const shouldHideNavbar = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <div>
@@ -18,8 +14,6 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path="/home" element={<WeatherPage />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/map" element={<Map center={{ lat: 20.2961, lng: 85.8189 }} zoom={13} />} />
         <Route path="/about" element={<About />} />
         <Route path="/weather" element={<WeatherPage />} />
