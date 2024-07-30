@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import WelcomePage from './pages/WelcomePage'
 import WeatherPage from './pages/WeatherPage';
 import Map from './pages/Map';
 import Navbar from './components/Navbar';
@@ -15,6 +16,7 @@ const AppContent = () => {
     <div>
       {!shouldHideNavbar && <Navbar />}
       <Routes>
+        <Route path="/" element={<WelcomePage />} />
         <Route path="/home" element={<WeatherPage />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
