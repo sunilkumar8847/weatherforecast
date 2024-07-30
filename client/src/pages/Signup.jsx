@@ -18,7 +18,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('https://weatherforecast-3w5n.vercel.app', { fullName, email, password, confPassword });
+      await axios.post('http://localhost:5000/auth/signup', { fullName, email, password, confPassword });
       navigate('/home');
     } catch (error) {
       console.error('Signup failed:', error.response?.data?.error || error.message);

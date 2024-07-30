@@ -16,9 +16,10 @@ app.use(cors({
 //   origin: 'https://weatherforecast-3w5n.vercel.app/',
   methods: ["POST",  "GET"],
   credentials: true
+
 }));
 
-app.length('/', (req, res) => {
+app.get('/', (req, res) => {
     res.json("Hello");
 })
 
